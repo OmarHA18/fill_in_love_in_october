@@ -1,0 +1,793 @@
+:root {
+    --burgundy: #52091b;
+    --deep: #2a0610;
+    --red: #9e1734;
+    --cream: #f7eddc;
+    --paper: #fff8eb;
+    --ink: #3b1820;
+    --gold: #caa34b
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: #16030a;
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif
+}
+
+body {
+    overflow-x: hidden
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    background: radial-gradient(circle at 50% 0, #7d1830 0, #52091b 42%, #21040c 100%);
+    overflow: hidden
+}
+
+.grain {
+    position: absolute;
+    inset: 0;
+    opacity: .12;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E")
+}
+
+.page {
+    display: none;
+    position: relative;
+    min-height: 100svh;
+    padding: 48px 22px 100px;
+    animation: pageIn .6s ease both
+}
+
+.page.active {
+    display: flex;
+    flex-direction: column
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px) rotate(.4deg)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.page-cover {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--cream);
+    padding-top: 30px
+}
+
+.cover-stars {
+    font-size: 24px;
+    color: #d7b875;
+    margin-bottom: 24px;
+    letter-spacing: 10px
+}
+
+.tiny-label,
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 700
+}
+
+.page-cover h1 {
+    font-size: clamp(48px, 12vw, 86px);
+    line-height: .88;
+    margin: 8px 0 14px;
+    font-weight: 600
+}
+
+.page-cover h1 em {
+    font-family: Caveat, cursive;
+    font-size: 1.1em;
+    color: #e9bd6a
+}
+
+.cover-sub {
+    font-family: Caveat, cursive;
+    font-size: 24px;
+    color: #e7c7a5;
+    margin: 0 0 34px
+}
+
+.envelope-wrap {
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px
+}
+
+.envelope {
+    width: 190px;
+    height: 122px;
+    position: relative;
+    display: block;
+    filter: drop-shadow(0 15px 15px #16030a99);
+    transition: .35s
+}
+
+.envelope-wrap:hover .envelope {
+    transform: translateY(-6px) rotate(-1deg)
+}
+
+.env-body {
+    position: absolute;
+    inset: 0;
+    background: #8f1631;
+    border: 1px solid #d18a77;
+    border-radius: 5px;
+    clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 100%, 0 100%)
+}
+
+.env-flap {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    background: #b22640;
+    clip-path: polygon(0 0, 100% 0, 50% 57%);
+    border-radius: 5px
+}
+
+.seal {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #b01837;
+    border: 2px solid #d98c79;
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+    box-shadow: 0 3px 8px #2a061055
+}
+
+.open-text {
+    font-family: Caveat, cursive;
+    font-size: 27px;
+    color: #f0d0a8
+}
+
+.date {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #b98576;
+    margin-top: 34px
+}
+
+.letter-page {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #4c0717, #6f1025)
+}
+
+.paper-card {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: var(--paper);
+    padding: 54px 30px 42px;
+    box-shadow: 0 25px 50px #17030a66;
+    transform: rotate(-.7deg);
+    border: 1px solid #e5cdb0
+}
+
+.tape {
+    position: absolute;
+    width: 78px;
+    height: 24px;
+    background: #d8b98e88;
+    top: -10px
+}
+
+.tape-left {
+    left: 20px;
+    transform: rotate(-8deg)
+}
+
+.tape-right {
+    right: 20px;
+    transform: rotate(8deg)
+}
+
+.eyebrow {
+    color: #a72b43;
+    margin: 0 0 20px
+}
+
+.paper-card h2 {
+    font-family: Caveat, cursive;
+    font-size: 43px;
+    margin: 0 0 18px;
+    color: #671027
+}
+
+.letter-copy {
+    font-size: 20px;
+    line-height: 1.48;
+    margin: 0 0 17px
+}
+
+.letter-copy span {
+    color: #a01839;
+    font-weight: 700
+}
+
+.signature {
+    font-family: Caveat, cursive;
+    text-align: right;
+    font-size: 28px;
+    color: #7a1630;
+    margin: 24px 0 0
+}
+
+.page-number {
+    position: absolute;
+    bottom: 88px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #d5a3a0;
+    font-size: 11px;
+    letter-spacing: 4px
+}
+
+.scrapbook-page {
+    background: #f1dfc5;
+    overflow: hidden
+}
+
+.section-heading {
+    text-align: center;
+    margin: 4px 0 24px
+}
+
+.section-heading span {
+    font-family: Caveat, cursive;
+    font-size: 23px;
+    color: #a32645
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    color: #591024;
+    margin: 0
+}
+
+.scrapbook-grid {
+    max-width: 760px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 15px;
+    align-items: center
+}
+
+.polaroid {
+    background: #fffdf6;
+    padding: 9px 9px 28px;
+    box-shadow: 0 10px 20px #4b182044;
+    margin: 0;
+    position: relative
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover
+}
+
+.polaroid figcaption {
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: Caveat, cursive;
+    font-size: 18px;
+    color: #572033
+}
+
+.p1 {
+    transform: rotate(-5deg)
+}
+
+.p2 {
+    transform: rotate(4deg)
+}
+
+.p3 {
+    transform: rotate(3deg)
+}
+
+.p4 {
+    transform: rotate(-4deg)
+}
+
+.doodle {
+    position: absolute;
+    font-family: Caveat, cursive;
+    color: #a72545
+}
+
+.doodle-heart {
+    left: 8%;
+    top: 23%;
+    font-size: 54px;
+    transform: rotate(-15deg)
+}
+
+.doodle-cherry {
+    right: 8%;
+    bottom: 19%;
+    font-size: 28px;
+    line-height: .55
+}
+
+.scrap-note {
+    font-family: Caveat, cursive;
+    text-align: center;
+    font-size: 27px;
+    color: #812039;
+    margin: 28px 0 0;
+    transform: rotate(-3deg)
+}
+
+.birthday-page {
+    align-items: center;
+    justify-content: center;
+    background: #4b0718;
+    color: var(--cream)
+}
+
+.birthday-frame {
+    max-width: 620px;
+    width: 100%;
+    position: relative;
+    background: #f6ead5;
+    padding: 16px 16px 54px;
+    box-shadow: 0 24px 55px #10020999;
+    transform: rotate(1deg)
+}
+
+.frame-top {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8c2340;
+    text-align: center;
+    margin: 2px 0 12px
+}
+
+.photo-holder {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #25040d
+}
+
+.photo-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block
+}
+
+.hand-note {
+    font-family: Caveat, cursive;
+    font-size: 30px;
+    color: #6b1029;
+    position: absolute;
+    bottom: 8px;
+    left: 24px;
+    transform: rotate(-3deg)
+}
+
+.sticker {
+    position: absolute;
+    right: -22px;
+    top: 25%;
+    background: #a71939;
+    color: #ffe8c6;
+    padding: 14px 12px;
+    font-family: Caveat, cursive;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: .85;
+    transform: rotate(9deg);
+    box-shadow: 4px 6px 0 #651025
+}
+
+.birthday-copy {
+    font-family: Caveat, cursive;
+    text-align: center;
+    font-size: 27px;
+    max-width: 620px;
+    margin: 26px 0 0;
+    color: #f1cfaa
+}
+
+.music-page {
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f4e2c9, #e8caa8)
+}
+
+.music-card {
+    width: min(680px, 100%);
+    background: #9c1937;
+    padding: 34px 24px 40px;
+    border-radius: 2px;
+    box-shadow: 0 25px 55px #31051055;
+    text-align: center;
+    color: #ffe8c6;
+    position: relative;
+    overflow: hidden
+}
+
+.music-title {
+    font-family: Caveat, cursive;
+    font-size: 36px;
+    transform: rotate(-3deg);
+    margin-bottom: 12px
+}
+
+.record-wrap {
+    height: 290px;
+    position: relative;
+    display: grid;
+    place-items: center
+}
+
+.vinyl {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: repeating-radial-gradient(circle, #171016 0 4px, #29202a 5px 7px);
+    box-shadow: 0 12px 20px #29051066;
+    position: absolute;
+    right: 7%;
+    top: 30px
+}
+
+.vinyl-label {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #a11c3c;
+    display: grid;
+    place-items: center;
+    font-size: 30px
+}
+
+.photo-polaroid {
+    width: 180px;
+    background: #fff8eb;
+    padding: 9px 9px 25px;
+    transform: rotate(-8deg);
+    z-index: 2;
+    box-shadow: 0 15px 25px #2a061066
+}
+
+.photo-polaroid img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover
+}
+
+.photo-polaroid span {
+    color: #661229;
+    font-family: Caveat, cursive;
+    font-size: 18px
+}
+
+.listen-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    line-height: 1.4;
+    margin: 10px 0 14px
+}
+
+.song-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    background: #f6e6cf;
+    color: #69142b;
+    border-radius: 999px;
+    padding: 13px 19px;
+    font-family: Caveat, cursive;
+    font-size: 23px;
+    box-shadow: 0 8px 18px #39071555;
+    transition: .2s
+}
+
+.song-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px #39071566
+}
+
+.artist {
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin: 12px 0 0;
+    color: #edc4a3
+}
+
+.music-flower {
+    position: absolute;
+    left: 7%;
+    top: 18%;
+    font-size: 70px;
+    color: #8d1c39;
+    transform: rotate(-20deg)
+}
+
+.music-camera {
+    position: absolute;
+    right: 8%;
+    bottom: 16%;
+    font-size: 50px;
+    color: #8d1c39;
+    transform: rotate(10deg)
+}
+
+.controls {
+    position: fixed;
+    z-index: 20;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #26050eaa;
+    backdrop-filter: blur(12px);
+    padding: 8px 12px;
+    border-radius: 999px
+}
+
+.controls button {
+    border: 0;
+    background: #f4e2c9;
+    color: #5b0e23;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer
+}
+
+.dots {
+    display: flex;
+    gap: 6px
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #c98d8d55
+}
+
+.dot.active {
+    background: #f0c37b;
+    width: 18px;
+    border-radius: 5px
+}
+
+.restart {
+    position: fixed;
+    z-index: 20;
+    right: 16px;
+    bottom: 24px;
+    border: 0;
+    background: transparent;
+    color: #dcb8a3;
+    font-family: Caveat, cursive;
+    font-size: 17px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: .2s
+}
+
+.restart.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+@media(min-width:700px) {
+    .page {
+        padding-left: 8vw;
+        padding-right: 8vw
+    }
+
+    .scrapbook-grid {
+        grid-template-columns: repeat(4, 1fr)
+    }
+
+    .polaroid img {
+        height: 240px
+    }
+
+    .p2,
+    .p4 {
+        margin-top: 45px
+    }
+
+    .paper-card {
+        padding: 65px 65px 50px
+    }
+
+    .birthday-frame {
+        max-width: 520px
+    }
+
+    .music-card {
+        max-width: 620px
+    }
+}
+
+.photo-instruction {
+    font-family: Caveat, cursive;
+    font-size: 25px;
+    color: #681229;
+    text-align: center;
+    margin: 0 0 2px;
+    transform: rotate(-2deg);
+    position: relative;
+    z-index: 3
+}
+
+.photo-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease
+}
+
+.photo-link:hover {
+    transform: rotate(-8deg) scale(1.04) translateY(-5px);
+    box-shadow: 0 20px 30px #2a061077
+}
+
+.photo-link:active {
+    transform: rotate(-8deg) scale(.98)
+}
+
+/* Exact memory-page layout requested */
+.memory-page {
+    align-items: center;
+    justify-content: center;
+    background: #9e0734;
+    color: #f7eddc;
+    padding-top: 45px
+}
+
+.memory-frame {
+    width: min(720px, 92vw);
+    background: #f7eddc;
+    padding: 14px 14px 48px;
+    position: relative;
+    box-shadow: 0 20px 45px #24020b66;
+    transform: rotate(.15deg)
+}
+
+.memory-photo-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer
+}
+
+.memory-top-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #8b2340;
+    margin: 2px 0 14px;
+    text-transform: uppercase
+}
+
+.memory-photo-holder {
+    width: 100%;
+    aspect-ratio: 1242/2208;
+    overflow: hidden;
+    background: #25040d
+}
+
+.memory-photo-holder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block
+}
+
+.memory-smile {
+    font-family: Caveat, cursive;
+    font-size: 30px;
+    color: #74142d;
+    margin: 12px 0 0 8px;
+    transform: rotate(-3deg)
+}
+
+.memory-copy {
+    font-family: Caveat, cursive;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.15;
+    max-width: 720px;
+    color: #f7eddc;
+    margin: 22px 18px 0;
+    transform: rotate(-1deg)
+}
+
+.memory-photo-link:hover .memory-photo-holder img {
+    transform: scale(1.012)
+}
+
+.memory-photo-holder img {
+    transition: transform .2s ease
+}
+
+@media(max-width:699px) {
+    .memory-page {
+        padding: 34px 12px 100px
+    }
+
+    .memory-frame {
+        width: min(94vw, 520px);
+        padding: 10px 10px 42px
+    }
+
+    .memory-top-text {
+        font-size: 9px;
+        letter-spacing: 3px;
+        margin-bottom: 10px
+    }
+
+    .memory-photo-holder {
+        aspect-ratio: 1242/2208
+    }
+
+    .memory-smile {
+        font-size: 27px;
+        margin-top: 10px
+    }
+
+    .memory-copy {
+        font-size: 22px;
+        margin-top: 18px
+    }
+}

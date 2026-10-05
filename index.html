@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#4c0717" />
+  <title>We Fell in Love in October ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="book" aria-live="polite">
+    <div class="grain"></div>
+    <div class="hearts" aria-hidden="true"></div>
+
+    <section class="page page-cover active" data-page="0">
+      <div class="cover-stars">✦ &nbsp; ♡ &nbsp; ✦</div>
+      <p class="tiny-label">A LITTLE OCTOBER STORY</p>
+      <h1>We fell in<br><em>love in October!</em> ❤️</h1>
+      <p class="cover-sub">for my favorite person</p>
+      <button class="envelope-wrap" id="openBook" aria-label="Open the letter">
+        <span class="envelope">
+          <span class="seal">♥</span>
+          <span class="env-flap"></span>
+          <span class="env-body"></span>
+        </span>
+        <span class="open-text">Open it</span>
+      </button>
+      <p class="date">OCTOBER • FOREVER</p>
+    </section>
+
+    <section class="page letter-page" data-page="1">
+      <div class="paper-card">
+        <div class="tape tape-left"></div>
+        <div class="tape tape-right"></div>
+        <p class="eyebrow">TO MY FAV PERSON</p>
+        <h2>My October girl,</h2>
+        <p class="letter-copy">Somehow, out of all the ordinary days, October became one of my favorite chapters. Not
+          because of the month itself, but because it became connected to <span>you</span>.</p>
+        <p class="letter-copy">I love the little moments, the laughs that come out of nowhere, the pictures we keep, and
+          all the memories that somehow feel warmer when I think about them with you.</p>
+        <p class="letter-copy">So here is a tiny place on the internet for a few of those memories — because some
+          moments deserve their own little scrapbook.</p>
+        <p class="signature">Always yours,<br><b>♥</b></p>
+      </div>
+      <div class="page-number">01</div>
+    </section>
+
+    <section class="page scrapbook-page" data-page="2">
+      <div class="section-heading">
+        <span>little memories</span>
+        <h2>Our scrapbook</h2>
+      </div>
+      <div class="scrapbook-grid">
+        <figure class="polaroid p1"><img src="assets/photo-1.jpeg" alt="A memory together">
+          <figcaption>one of my favorites</figcaption>
+        </figure>
+        <figure class="polaroid p2"><img src="assets/photo-2.jpeg" alt="Two Polaroid memories">
+          <figcaption>moments worth keeping</figcaption>
+        </figure>
+        <figure class="polaroid p3"><img src="assets/photo-3.jpeg" alt="A birthday memory">
+          <figcaption>you + me ♡</figcaption>
+        </figure>
+        <figure class="polaroid p4"><img src="assets/photo-4.jpeg" alt="A memory by the car">
+          <figcaption>another little memory</figcaption>
+        </figure>
+      </div>
+      <div class="doodle doodle-heart">♡</div>
+      <div class="doodle doodle-cherry">●<br>●</div>
+      <p class="scrap-note">keep these forever.</p>
+    </section>
+
+    <section class="page memory-page" data-page="3">
+      <div class="memory-frame">
+        <a class="memory-photo-link" href="https://youtu.be/iggmiF7DNoM?si=OGXUQU6_Ei9gsrMH" target="_blank"
+          rel="noopener noreferrer" aria-label="Click the photo for a surprise">
+          <div class="memory-top-text">click on the photo there is a surprise ♡</div>
+          <div class="memory-photo-holder"><img src="assets/music-photo.jpeg" alt="A special October memory"></div>
+        </a>
+        <div class="memory-smile">look at that smile ♡</div>
+      </div>
+      <p class="memory-copy">There are photos that are just photos... and then there are photos that instantly take you
+        back to a feeling.</p>
+    </section>
+
+    <nav class="controls" aria-label="Story navigation">
+      <button id="prev" aria-label="Previous page">←</button>
+      <div class="dots" id="dots"></div>
+      <button id="next" aria-label="Next page">→</button>
+    </nav>
+    <button class="restart" id="restart">start again ↻</button>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>
